@@ -38,3 +38,11 @@ const typeDefs = gql`
 		findPerson(name: String!): Person
 	}
 `;
+
+const resolvers = {
+	Query: {
+		personCount: () => persons.length,
+		allPersons: () => persons,
+		findPerson: (root, args) => persons.find(p => p.name === args.name),
+	},
+};
