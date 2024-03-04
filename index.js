@@ -1,4 +1,4 @@
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer, gql } from '@apollo/server';
 
 const persons = [
 	{
@@ -46,3 +46,8 @@ const resolvers = {
 		findPerson: (root, args) => persons.find(p => p.name === args.name),
 	},
 };
+
+const server = new ApolloServer({
+	typeDefs,
+	resolvers,
+});
